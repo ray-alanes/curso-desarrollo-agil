@@ -7,7 +7,7 @@ import java.util.List;
 public class ServicioPOIImpl implements ServicioPOI {
 
     public List<POI> obtenerPOIs(String nombreCapa) {
+
         return CapaEjemplo.getInstance().getPOIs(nombreCapa);
     }
-
 }

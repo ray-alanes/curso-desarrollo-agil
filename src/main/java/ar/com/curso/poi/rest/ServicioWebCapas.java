@@ -15,49 +15,53 @@ import ar.com.curso.poi.servicios.ServicioPOIImpl;
 @Path("/")
 public class ServicioWebCapas {
 
-	private ServicioPOI servicioPOI = new ServicioPOIImpl();
+    private ServicioPOI servicioPOI = new ServicioPOIImpl();
 
-	@GET
-	@Path("/test")
-	public String hola(){
-		return "Test";
-	}
-	
-	@GET
-	@Path("/pois/{nombreServicio}")
-	@Produces("application/xml")
-	public List <POI> obtenerPOIs(@PathParam("nombreServicio") String nombreServicio) {
-		
-		return servicioPOI.obtenerPOIs(nombreServicio);
-	}
-	
-	@GET
-	@Path("/poiMasCercano/{nombreServicio}/{latitud}/{longitud}")
-	@Produces("application/xml")
-	public POI obtenerPOIMasCercano(@PathParam("nombreServicio") String nombreServicio,
-									@PathParam("latitud") String latitud,
-									@PathParam("longitud")String longitud) {
+    @GET
+    @Path("/test")
+    public String hola() {
 
-		List<POI> pois = servicioPOI.obtenerPOIs(nombreServicio);
+        return "Test";
+    }
 
-		CalculadorDeDistancia calculadorDeDistancia = new CalculadorDeDistancia();
-		Double distanciaMinima = 0.0;
-		POI poiConDistanciaMinima = new POI();
-		
-		POI ubicacionActual = new POI(latitud, longitud);
-		
-		if (!pois.isEmpty()) {
-			poiConDistanciaMinima = pois.get(0);
-			distanciaMinima = calculadorDeDistancia.calcularDistancia(poiConDistanciaMinima, ubicacionActual);
-		}
-		
-		for (POI unPoi : pois) {
-			if (calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual) < distanciaMinima) {
-				distanciaMinima = calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual);
-				poiConDistanciaMinima = unPoi;
-			}
-		}
-		
-		return poiConDistanciaMinima;
-	}
+    @GET
+    @Path("/pois/{nombreServicio}")
+    @Produces("application/xml")
+    public List<POI> obtenerPOIs(@PathParam("nombreServicio") String nombreServicio) {
+
+        return servicioPOI.obtenerPOIs(nombreServicio);
+    }
+
+    @GET
+    @Path("/poiMasCercano/{nombreServicio}/{latitud}/{longitud}")
+    @Produces("application/xml")
+    public POI obtenerPOIMasCercano(@PathParam("nombreServicio") String nombreServicio,
+        @PathParam("latitud") String latitud,
+        @PathParam("longitud") String longitud) {
+
+        List<POI> pois = servicioPOI.obtenerPOIs(nombreServicio);
+
+        CalculadorDeDistancia calculadorDeDistancia = new CalculadorDeDistancia();
+        Double distanciaMinima = 0.0;
+        POI poiConDistanciaMinima = new POI();
+
+        POI ubicacionActual = new POI(latitud, longitud);
+
+        if (!pois.isEmpty()) {
+
+            poiConDistanciaMinima = pois.get(0);
+            distanciaMinima = calculadorDeDistancia.calcularDistancia(poiConDistanciaMinima, ubicacionActual);
+        }
+
+        for (POI unPoi : pois) {
+
+            if (calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual) < distanciaMinima) {
+
+                distanciaMinima = calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual);
+                poiConDistanciaMinima = unPoi;
+            }
+        }
+
+        return poiConDistanciaMinima;
+    }
 }
