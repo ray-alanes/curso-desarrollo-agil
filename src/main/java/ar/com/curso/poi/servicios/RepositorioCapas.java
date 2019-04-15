@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CapaEjemplo {
+public class RepositorioCapas {
 
     private Map<String, Capa> capas = new HashMap<String, Capa>();
 
-    private static CapaEjemplo instance = new CapaEjemplo();
+    private static RepositorioCapas instance = new RepositorioCapas();
 
-    private CapaEjemplo() {
+    private RepositorioCapas() {
 
         Capa pizzerias = new Capa("pizzerias");
         pizzerias.setPOIs(crearCapaPizzerias());
@@ -26,7 +26,7 @@ public class CapaEjemplo {
         capas.put(cafeterias.getNombre(), cafeterias);
     }
 
-    public static CapaEjemplo getInstance() {
+    public static RepositorioCapas getInstance() {
 
         return instance;
     }
