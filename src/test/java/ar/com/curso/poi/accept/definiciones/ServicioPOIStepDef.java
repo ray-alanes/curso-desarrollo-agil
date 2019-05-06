@@ -1,8 +1,6 @@
 package ar.com.curso.poi.accept.definiciones;
 
 import ar.com.curso.poi.modelo.POI;
-import ar.com.curso.poi.servicios.ServicioPOI;
-import ar.com.curso.poi.servicios.ServicioPOIImpl;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
@@ -22,13 +20,10 @@ public class ServicioPOIStepDef{
 	private String url;
 	private String urlBase;
 	private String port;
-	private ServicioPOI servicio;
-	private List<POI> puntosMasCercanos;
 	private String respuestaJson;
 
 	@Before
 	public void setUp(){
-		this.servicio = new ServicioPOIImpl();
 		port = System.getProperty("servlet.port", "8080");
 		urlBase = "http://localhost:" + port + "/pois-app";
 	}
