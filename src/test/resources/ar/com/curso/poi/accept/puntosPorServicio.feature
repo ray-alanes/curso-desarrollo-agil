@@ -4,7 +4,7 @@ Característica: Obtener los puntos de un servicio
 	Como usuario
 	Quiero obtener los puntos de interes de un determinado servicio
 
-Escenario: Obtener los puntos de un servicio
+Escenario: Obtener los puntos de un service
 	Dado que estoy en cualquier locacion
 	Cuando pido los puntos del servicio pizzerias
 	Entonces el servicio devuelve una lista de puntos de interés

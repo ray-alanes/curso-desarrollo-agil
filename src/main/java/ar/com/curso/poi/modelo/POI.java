@@ -64,6 +64,11 @@ public class POI implements Serializable {
         this.latitud = latitud;
     }
 
+    public Boolean validarLatitud() {
+        return latitud > 0;
+
+    }
+
     @XmlElement
     public Double getLongitud() {
 

@@ -53,7 +53,7 @@ public class POIMasCercanoStepDef {
 
     @Entonces("^el servicio devuelve el mensaje \"([^\"]*)\"$")
     public void elServicioDevuelveElMensaje(String mensaje) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        assertThat(mensaje).isEqualTo("el punto ingresado es inválido");
     }
 }

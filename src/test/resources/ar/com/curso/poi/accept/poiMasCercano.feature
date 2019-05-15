@@ -15,7 +15,6 @@ Escenario:
     Cuando pido el POI mas cercano del servicio pizzerias
     Entonces el servicio devuelve el mensaje "el punto ingresado es inválido"
     
-    
 Escenario: 
     Dado que estoy en -34.6083159 y -58.3932122
     Cuando pido el POI mas cercano del servicio realidadAumentada

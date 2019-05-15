@@ -7,6 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import ar.com.curso.poi.modelo.Respuesta;
 import ar.com.curso.poi.servicios.CalculadorDeDistancia;
 import ar.com.curso.poi.modelo.POI;
 import ar.com.curso.poi.servicios.ServicioPOI;
@@ -27,9 +28,12 @@ public class ServicioWebCapas {
     @GET
     @Path("/pois/{nombreServicio}")
     @Produces("application/xml")
-    public List<POI> obtenerPOIs(@PathParam("nombreServicio") String nombreServicio) {
+    public Respuesta obtenerPOIs(@PathParam("nombreServicio") String nombreServicio) {
 
-        return servicioPOI.obtenerPOIs(nombreServicio);
+        List<POI> pois = servicioPOI.obtenerPOIs(nombreServicio);
+        Respuesta res = new Respuesta(pois, "OK");
+
+        return res;
     }
 
     @GET
