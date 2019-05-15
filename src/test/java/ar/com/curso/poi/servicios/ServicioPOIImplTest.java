@@ -31,7 +31,21 @@ public class ServicioPOIImplTest {
                 -28.410941,
                 "Cabildo",
                 "Cabildo"));
-
+        poisRealidadAumentadaEsperados.add(new POI(
+                -34.6010406,
+                -58.3852726,
+                "Teatro Colon",
+                "Teatro Colon"));
+        poisRealidadAumentadaEsperados.add(new POI(
+                -34.6010406,
+                -58.3852726,
+                "Planetario",
+                "Planetario"));
+        poisRealidadAumentadaEsperados.add(new POI(
+                -34.5784263,
+                -58.4227352,
+                "La rural",
+                "La Rural"));
 
         assertThat(pois).isEqualTo(poisRealidadAumentadaEsperados);
 

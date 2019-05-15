@@ -50,4 +50,28 @@ public class ServicioWebCapas {
         return poiConDistanciaMinima;
     }
 
+    @GET
+    @Path("/poiMasCercano/{nombreServicio}/{latitud}/{longitud}/{radio}")
+    @Produces("application/xml")
+    public List<POI> obtenerPOIMasCercanoConRadio(@PathParam("nombreServicio") String nombreServicio,
+                                                  @PathParam("latitud") String latitud,
+                                                  @PathParam("longitud") String longitud,
+                                                  @PathParam("radio") String radio
+                                            ) {
+
+        List<POI> pois = servicioPOI.obtenerPOIs(nombreServicio);
+
+        CalculadorDeDistancia calculadorDeDistancia = new CalculadorDeDistancia();
+
+        POI ubicacionActual = new POI(latitud, longitud);
+
+        int radioDeBusqueda = Integer.parseInt(radio);
+
+        List<POI> poiConDistanciaMinima = calculadorDeDistancia.buscarPOIDentroDeUnRadio(pois, ubicacionActual, radioDeBusqueda);
+
+        return poiConDistanciaMinima;
+    }
+
+
+
 }

@@ -91,20 +91,36 @@ public class RepositorioCapas {
 
         List<POI> pois = new ArrayList<POI>();
         pois.add(new POI(
-                -54.609573,
-                -158.396187,
+                -34.6037389,
+                -58.3837644,
                 "Obelisco",
                 "Obelisco de Buenos Aires"));
         pois.add(new POI(
-                -74.602305,
-                -88.429459,
+                -34.6098164,
+                -58.3948001,
                 "Congreso",
                 "Congreso de la nacion"));
         pois.add(new POI(
-                -94.603983,
-                -28.410941,
+                -34.6056955,
+                -58.3777179,
                 "Cabildo",
                 "Cabildo"));
+        pois.add(new POI(
+                -34.6010406,
+                -58.3852726,
+                "Teatro Colon",
+                "Teatro Colon"));
+        pois.add(new POI(
+                -34.6010406,
+                -58.3852726,
+                "Planetario",
+                "Planetario"));
+        pois.add(new POI(
+                -34.5784263,
+                -58.4227352,
+                "La rural",
+                "La Rural"));
+
         return pois;
     }
 

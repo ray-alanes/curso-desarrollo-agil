@@ -7,4 +7,5 @@ import java.util.List;
 public interface ServicioPOI {
 
     List<POI> obtenerPOIs(String nombreCapa);
+
 }

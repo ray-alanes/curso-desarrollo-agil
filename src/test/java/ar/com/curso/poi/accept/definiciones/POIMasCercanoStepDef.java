@@ -1,5 +1,6 @@
 package ar.com.curso.poi.accept.definiciones;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -48,5 +49,11 @@ public class POIMasCercanoStepDef {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.connect();
         return new BufferedReader( new InputStreamReader( connection.getInputStream() ) ).readLine();
+    }
+
+    @Entonces("^el servicio devuelve el mensaje \"([^\"]*)\"$")
+    public void elServicioDevuelveElMensaje(String mensaje) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }

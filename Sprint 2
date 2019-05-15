@@ -1,0 +1,32 @@
+sobre validacion del cuadrante: solo validamos que se encuentre en el mismo cuadrante?
+y en caso de error, que devolvemos?
+---- Los dos valores negativos. Error "El punto es invalido"
+
+---- Escenario:
+    Dado que estoy en -34.603765 y 58.381570
+    Cuando pido el POI mas cercano del servicio pizzerias
+    Entonces el servicio devuelve el mensaje "el punto ingresado es inválido"
+---- Si demora mucho no se hace en este sprint.    
+
+si no hay pois, dentro del radio, que devuelvo??
+--- Una lista vacia.
+
+validar los pois ya agregados en realidad Aumentada
+--- OK
+
+que devuelvo si no existe el punto de interes a buscar
+--- Mensaje de error.
+
+se puede consultar punto de interes solo por coordenadas o tambien nombre/descripcion
+--- Por para un servicio y para el mapa de un servicio
+
+radio en enteros
+que devuelve si el radio es negativo
+--- Mensaje de error.
+
+
+que devolvemos si al agregar poi, no existe el mapa
+--- Mensaje de que el mapa no existe. 
+
+
+
