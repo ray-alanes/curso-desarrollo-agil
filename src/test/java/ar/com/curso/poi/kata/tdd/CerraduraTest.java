@@ -1,60 +1,58 @@
 package ar.com.curso.poi.kata.tdd;
 
 
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CerraduraTest {
 
-    private Cerradura cerradura = new Cerradura(1234, 3);
+    @Test
+    public void crearCerraduraConClaveYCantidadDeFallos() {
+
+        Cerradura c = new Cerradura(1234, 3);
+        assertThat(c).isNotNull();
+        assertThat(c.getClave()).isEqualTo(1234);
+        assertThat(c.getCantidadDeFallos()).isEqualTo(3);
+    }
 
     @Test
-    public void crearCerraduraDeberiaEstarCerrada(){
-        assertThat(cerradura.estaCerrada()).isTrue();
+    public void crearOtraCerraduraConClaveYCantidadDeFallos() {
+
+        Cerradura c = new Cerradura(12345, 5);
+        assertThat(c).isNotNull();
+        assertThat(c.getClave()).isEqualTo(12345);
+        assertThat(c.getCantidadDeFallos()).isEqualTo(5);
     }
-    
+
     @Test
-    public void crearCerraduraNoDeberiaEstarBloqueada(){
-        assertThat(cerradura.fueBloqueada()).isFalse();
+    public void abrirConLaClaverCorrectaAbre() {
+
+        Cerradura c = new Cerradura(12345, 5);
+        assertThat(c.abrir(12345)).isTrue();
     }
-    
+
     @Test
-    public void abrirConClaveCorrectaDeberiaAbrirLaCerradura(){
-        assertThat(cerradura.abrir(1234)).isTrue();
+    public void abrirConLaClaverIncorrectaNoAbre() {
+
+        Cerradura c = new Cerradura(12345, 5);
+        assertThat(c.abrir(1234)).isFalse();
     }
-    
+
     @Test
-    public void abrirConClaveInCorrectaNoDeberiaAbrirLaCerradura(){
-        assertThat(cerradura.abrir(4444)).isFalse();
+    public void cerrarCierra() {
+
+        Cerradura c = new Cerradura(12345, 5);
+        c.cerrar();
+        assertThat(c.estaCerrada()).isTrue();
     }
-    
+
     @Test
-    public void aperturaExitosaDeberiaIncrementarContador(){
-        cerradura.abrir(1234);
-        assertThat(cerradura.contarAperturasExitosas()).isEqualTo(1);
+    public void noCerrarNoCierra() {
+
+        Cerradura c = new Cerradura(12345, 5);
+        c.abrir(12345);
+        assertThat(c.estaCerrada()).isFalse();
     }
-    
-    @Test
-    public void cerrarCerraduraDeberiaCerrarla(){
-        cerradura.abrir(1234);
-        assertThat(cerradura.estaCerrada()).isFalse();
-        cerradura.cerrar();
-        assertThat(cerradura.estaCerrada()).isTrue();
-    }
-    
-    @Test
-    public void abrirMasDeNVecesConClaveInvalidaDeberiaBloqueaCerradura(){
-        cerradura.abrir(444);
-        assertThat(cerradura.estaCerrada()).isTrue();
-        assertThat(cerradura.fueBloqueada()).isFalse();
-        cerradura.abrir(444);
-        assertThat(cerradura.estaCerrada()).isTrue();
-        assertThat(cerradura.fueBloqueada()).isFalse();
-        cerradura.abrir(444);
-        assertThat(cerradura.estaCerrada()).isTrue();
-        assertThat(cerradura.fueBloqueada()).isFalse();
-        cerradura.abrir(444);
-        assertThat(cerradura.estaCerrada()).isTrue();
-        assertThat(cerradura.fueBloqueada()).isTrue();
-    }
+
 }

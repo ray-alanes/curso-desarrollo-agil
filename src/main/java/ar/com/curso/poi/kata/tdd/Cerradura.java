@@ -2,55 +2,40 @@ package ar.com.curso.poi.kata.tdd;
 
 public class Cerradura {
 
-    private int claveDeApertura;
-    private int cantidadFallos = 0;
-    private int cantidadDeFallosConsecutivosQueLaBloquean;
+    private int clave;
+    private int cantidadDeFallos;
     private boolean cerrada;
-    private boolean bloqueada;
+    private boolean abierta;
 
-    public Cerradura(int claveDeApertura, int cantidadDeFallosConsecutivosQueLaBloquean) {
+    public Cerradura(int clave, int cantidadDeFallos) {
 
-        this.claveDeApertura = claveDeApertura;
-        this.cantidadDeFallosConsecutivosQueLaBloquean = cantidadDeFallosConsecutivosQueLaBloquean;
-        cerrada = true;
-        bloqueada = false;
+        this.clave = clave;
+        this.cantidadDeFallos = cantidadDeFallos;
     }
 
-    public boolean estaCerrada() {
-
-        return cerrada;
+    public int getClave() {
+        return clave;
     }
 
-    public boolean fueBloqueada() {
-
-        return bloqueada;
+    public int getCantidadDeFallos() {
+        return cantidadDeFallos;
     }
 
     public boolean abrir(int clave) {
 
-        if (clave == claveDeApertura) {
-
-            cerrada = false;
-            return true;
-        }
-
-        cantidadFallos++;
-
-        if (cantidadFallos > cantidadDeFallosConsecutivosQueLaBloquean) {
-
-            bloqueada = true;
-        }
-
-        return false;
-    }
-
-    public Object contarAperturasExitosas() {
-
-        return 1;
+        return this.clave == clave;
     }
 
     public void cerrar() {
-
         cerrada = true;
     }
+
+    public boolean estaCerrada() {
+        return cerrada;
+    }
+    
+    public boolean estaAbierta() {
+        return abierta;
+    }
+
 }
