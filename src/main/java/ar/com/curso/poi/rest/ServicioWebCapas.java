@@ -42,26 +42,12 @@ public class ServicioWebCapas {
         List<POI> pois = servicioPOI.obtenerPOIs(nombreServicio);
 
         CalculadorDeDistancia calculadorDeDistancia = new CalculadorDeDistancia();
-        Double distanciaMinima = 0.0;
-        POI poiConDistanciaMinima = new POI();
 
         POI ubicacionActual = new POI(latitud, longitud);
 
-        if (!pois.isEmpty()) {
-
-            poiConDistanciaMinima = pois.get(0);
-            distanciaMinima = calculadorDeDistancia.calcularDistancia(poiConDistanciaMinima, ubicacionActual);
-        }
-
-        for (POI unPoi : pois) {
-
-            if (calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual) < distanciaMinima) {
-
-                distanciaMinima = calculadorDeDistancia.calcularDistancia(unPoi, ubicacionActual);
-                poiConDistanciaMinima = unPoi;
-            }
-        }
+        POI poiConDistanciaMinima = calculadorDeDistancia.buscarPOIMasCercano(pois, ubicacionActual);
 
         return poiConDistanciaMinima;
     }
+
 }

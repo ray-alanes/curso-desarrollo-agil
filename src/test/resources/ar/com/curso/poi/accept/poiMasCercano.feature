@@ -10,4 +10,3 @@ Escenario: Obtener el punto más cercano a mi ubicación
     Cuando pido el POI mas cercano del servicio pizzerias
     Entonces el servicio devuelve solo Las cuartetas
 
-

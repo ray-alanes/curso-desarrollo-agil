@@ -1,0 +1,32 @@
+[{
+        "latitud":10.1,
+        "longitu":15.5,
+        "nombre":"kentuky",
+        "descripcion":"pizzeria kentuky",
+        "url":""
+},
+{
+        "latitud":34.6,
+        "longitu":18.5,
+        "nombre":"ugis",
+        "descripcion":"pizzeria ugis",
+        "url":""
+},{
+        "latitud":9.9,
+        "longitu":34.0,
+        "nombre":"la continental",
+        "descripcion":"pizzeria la continental",
+        "url":""},
+{
+        "latitud":16.7,
+        "longitu":15.0,
+        "nombre":"los cuartetos",
+        "descripcion":"pizzeria los cuartetos",
+        "url":""},
+{
+        "latitud":12.1,
+        "longitu":35.5,
+        "nombre":"guerrin",
+        "descripcion":"pizzeria guerrin",
+        "url":""}
+]
