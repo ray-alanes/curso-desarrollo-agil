@@ -64,8 +64,8 @@ public class POI implements Serializable {
         this.latitud = latitud;
     }
 
-    public Boolean validarLatitud() {
-        return latitud > 0;
+    public Boolean validarLatitudNegativa() {
+        return latitud < 0;
 
     }
 

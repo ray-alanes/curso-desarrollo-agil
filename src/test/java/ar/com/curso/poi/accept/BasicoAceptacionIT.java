@@ -1,6 +1,7 @@
 package ar.com.curso.poi.accept;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -59,6 +60,7 @@ public class BasicoAceptacionIT {
 	}
 
 	@Test
+	@Ignore
 	public void pizzeriaMasCercanaAlObeliscoConSelenium(){
 
 		String latitudOblelisco = "-34.603765";

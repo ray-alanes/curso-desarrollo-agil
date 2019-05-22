@@ -1,5 +1,6 @@
 package ar.com.curso.poi.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -39,7 +40,7 @@ public class ServicioWebCapas {
     @GET
     @Path("/poiMasCercano/{nombreServicio}/{latitud}/{longitud}")
     @Produces("application/xml")
-    public POI obtenerPOIMasCercano(@PathParam("nombreServicio") String nombreServicio,
+    public Respuesta obtenerPOIMasCercano(@PathParam("nombreServicio") String nombreServicio,
         @PathParam("latitud") String latitud,
         @PathParam("longitud") String longitud) {
 
@@ -51,13 +52,22 @@ public class ServicioWebCapas {
 
         POI poiConDistanciaMinima = calculadorDeDistancia.buscarPOIMasCercano(pois, ubicacionActual);
 
-        return poiConDistanciaMinima;
+        List<POI> poisRespuesta = new ArrayList<>();
+        poisRespuesta.add(poiConDistanciaMinima);
+
+        String mensaje = "La latitud no debe ser negativa";
+        if(ubicacionActual.validarLatitudNegativa())
+            mensaje = "OK";
+
+        Respuesta respuesta = new Respuesta(poisRespuesta, mensaje);
+
+        return respuesta;
     }
 
     @GET
     @Path("/poiMasCercano/{nombreServicio}/{latitud}/{longitud}/{radio}")
     @Produces("application/xml")
-    public List<POI> obtenerPOIMasCercanoConRadio(@PathParam("nombreServicio") String nombreServicio,
+    public Respuesta obtenerPOIMasCercanoConRadio(@PathParam("nombreServicio") String nombreServicio,
                                                   @PathParam("latitud") String latitud,
                                                   @PathParam("longitud") String longitud,
                                                   @PathParam("radio") String radio
@@ -73,7 +83,7 @@ public class ServicioWebCapas {
 
         List<POI> poiConDistanciaMinima = calculadorDeDistancia.buscarPOIDentroDeUnRadio(pois, ubicacionActual, radioDeBusqueda);
 
-        return poiConDistanciaMinima;
+        return new Respuesta(poiConDistanciaMinima, "OK");
     }
 
 
